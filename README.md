@@ -59,7 +59,7 @@ Loading the dictionary back in is just as super duper easy.
 my_loaded_dict = db.load({"name":"Important experiment"})
 ```
 
-You'll notice some extra stuff in the dictionary:
+You'll notice some extra stuff in the dictionary, along with everything we saved:
 ```
 print my_loaded_dict
 {u'_id': ObjectId('513797159ee8623b8e4c5868'),
@@ -81,10 +81,10 @@ print my_loaded_dict
  u'name': u'Important experiment'}
 ```
 
-Note that there'll be some added keys in the dictionary, 
+The added keys are:
  -  `_npObjectIDs`
  -  `_id`
  -  `insertion_date`  
-The insertion_date you might not care about, but do keep
-_id and _npObjectIDs around. They're important for tracking
+The `insertion_date` you might not care about, but do keep
+`_id` and `_npObjectIDs` around. They're important for tracking
 the document and the numpy arrays associated with it.
