@@ -103,7 +103,7 @@ class MongoWrapper(object):
     'leaks' through rounds of processing on data.  Care should be taken to 
     duplicate data when needed.
     """
-    def __init__(self, dbName, collectionName, hostname='localhost', port=27017):
+    def __init__(self, dbName, collectionName, hostname='localhost', port=27017, username="alexbw", password=""):
         self.dbName = dbName
         self.collectionName = collectionName
         self.hostname = hostname
@@ -111,6 +111,9 @@ class MongoWrapper(object):
 
         self.connection = pymongo.Connection(hostname, port)
         self.db = self.connection[self.dbName]
+        if (username != ""):
+            self.db.authenticate(username, password)
+
         self.fs = gridfs.GridFS(self.db)
 
         self.collection = self.db[collectionName]
