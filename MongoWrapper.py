@@ -110,10 +110,11 @@ class MongoWrapper(object):
         self.port = port
 
         self.connection = pymongo.Connection(hostname, port)
-        self.db = self.connection[self.dbName]
         if (username != ""):
-            self.db.authenticate(username, password)
+            admin_db = self.connection["admin"]
+            admin_db = admin_db.authenticate(username, password)
 
+        self.db = self.connection[self.dbName]
         self.fs = gridfs.GridFS(self.db)
 
         self.collection = self.db[collectionName]
