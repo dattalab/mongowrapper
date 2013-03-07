@@ -180,7 +180,6 @@ class MongoWrapper(object):
             doc['_id'] = new_id
             id_values.append(new_id)
 
-        print 'Successfully inserted document(s)'
         return id_values
 
     def loadFromIds(self, Ids):
