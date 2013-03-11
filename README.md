@@ -22,6 +22,7 @@ Core methods:
 
 Usage:
 ```
+import monogowrapper as mdb
 db = mdb.MongoWrapper(dbName='test',
                       collectionName='test_collection', 
                       hostname="localhost", 
@@ -82,9 +83,6 @@ print my_loaded_dict
 ```
 
 The added keys are:
- -  `_npObjectIDs`
- -  `_id`
- -  `insertion_date`  
-The `insertion_date` you might not care about, but do keep
-`_id` and `_npObjectIDs` around. They're important for tracking
-the document and the numpy arrays associated with it.
+ -  `_npObjectIDs` - a list of all the GridFS IDs used to store the numpy arrays.
+ -  `_id` - MongoDB id for the inserted document, automatically added
+ -  `insertion_date` - current date of insertion, useful for indexing
