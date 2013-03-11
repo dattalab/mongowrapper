@@ -69,7 +69,7 @@ class MongoWrapper(object):
     
     Usage:
     
-    import imaging_analysis.core.io.mongodb as mdb
+    import monogowrapper as mdb
     # this creates both test and test_collection if they don't exist
     # Note that this connects, by default, to 'localhost:27017'. 
     # If you want to connect to a remote host, pass in 
